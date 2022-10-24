@@ -1,4 +1,3 @@
-// <p>good {props.good} neutral {props.neutral} bad {props.bad} total {props.all} average {props.average} positive % {props.percentage}</p>
 
 import { useState } from 'react'
 
@@ -90,6 +89,3 @@ const handlebad = () => {
 
 
 export default App
-
-
-// <p>good {props.good} neutral {props.neutral} bad {props.bad} total {props.all} average {props.average} positive % {props.percentage}</p>
