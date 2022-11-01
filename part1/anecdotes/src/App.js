@@ -12,17 +12,26 @@ const App = () => {
   ]
   const [selected, setSelected] = useState(0)
 
+  const votes= new Array(6).fill(0);
+
   const rando = () =>  {
 
   setSelected(Math.floor((Math.random()*7))) // getting random numbers from 0 to 6
 
-  console.log(selected)
   }
+  const vote = () => {
+  
+    votes[selected] = votes[selected] + 1  
+    
+  }
+  
   
   return (
     <div>
+      <button onClick={vote}>vote</button>
       <button onClick={rando}>next anecdotes</button>
       <br></br>
+      <p>votes are {votes[selected]}</p>
       {anecdotes[selected]}
     </div>
   )
