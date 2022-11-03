@@ -1,15 +1,5 @@
 import { useState } from 'react'
 
-/*const Displayvotes = (props) => {
-
-return(
-<p>
-{props.votes}
-</p> 
-)
-} */
-
-
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -39,17 +29,11 @@ const App = () => {
     setMaxi(Math.max(...newlist))
     setVotes(newlist)
     setIndex(votes.indexOf(maxi))
-    //setIndex(newlist.indexOf(maxi))
-    //setIndex(newlist.indexOf(maxi))
     console.log("votes array:",votes)
     console.log("maxi is :",maxi)
     
   }
- 
-  
-  //console.log("sel is ",selected)
-  //console.log("votes is ",votes)
-  //console.log("votes[se] ",votes[selected]) 
+
 
   
   return (
