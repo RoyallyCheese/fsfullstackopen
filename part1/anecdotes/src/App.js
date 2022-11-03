@@ -1,5 +1,15 @@
 import { useState } from 'react'
 
+/*const Displayvotes = (props) => {
+
+return(
+<p>
+{props.votes}
+</p> 
+)
+} */
+
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -11,28 +21,48 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.'
   ]
   const [selected, setSelected] = useState(0)
-
-  const votes= new Array(6).fill(0);
+  const [votes , setVotes] = useState([0,0,0,0,0,0,0])
+  const [maxi, setMaxi]= useState(0)
+  const [index, setIndex]=useState(0)
 
   const rando = () =>  {
 
-  setSelected(Math.floor((Math.random()*7))) // getting random numbers from 0 to 6
+  setSelected(Math.floor((Math.random()*anecdotes.length))) // getting random numbers from 0 to 6
 
   }
-  const vote = () => {
-  
-    votes[selected] = votes[selected] + 1  
+  const vote = () =>   {
+
+      const newlist=[...votes]
+
+    newlist[selected]+=1 
+    
+    setMaxi(Math.max(...newlist))
+    setVotes(newlist)
+    setIndex(votes.indexOf(maxi))
+    //setIndex(newlist.indexOf(maxi))
+    //setIndex(newlist.indexOf(maxi))
+    console.log("votes array:",votes)
+    console.log("maxi is :",maxi)
     
   }
+ 
   
+  //console.log("sel is ",selected)
+  //console.log("votes is ",votes)
+  //console.log("votes[se] ",votes[selected]) 
+
   
   return (
     <div>
       <button onClick={vote}>vote</button>
       <button onClick={rando}>next anecdotes</button>
       <br></br>
-      <p>votes are {votes[selected]}</p>
       {anecdotes[selected]}
+      <br></br>
+      votes={votes[selected]}
+     <h2>anecdote with most votes <br></br>{anecdotes[index]}: with max votes : {maxi}</h2>
+
+
     </div>
   )
 }
